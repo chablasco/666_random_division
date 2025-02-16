@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>CB 666 Random Division Generator</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.js"></script>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+    }
+    canvas {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <script>
+    let font;
+    let num1, num2, diff;
+    let fontsize = 100;
+
+    function preload() {
+      // Load the custom font (ensure "BluuNext-Bold.otf" is in the assets folder)
+      font = loadFont("assets/BluuNext-Bold.otf");
+    }
+
+    function setup() {
+      createCanvas(windowWidth, windowHeight); // Fullscreen canvas
+      background(255, 0, 0); // Red background
+      fill(0); // Black text color
+      textFont(font);
+      textAlign(CENTER, CENTER);
+
+      // Generate numbers until their division equals 666
+      do {
+        num1 = int(random(100000000));
+        num2 = int(random(100000000));
+        diff = Math.floor(num1 / num2); // Calculate the division (integer result)
+      } while (diff !== 666);
+    }
+
+    function draw() {
+      background(255, 0, 0); // Ensure consistent red background
+
+      textSize(fontsize); // Set text size
+      // Display the numbers and their division on the screen
+      text(num1 + " / " + num2 + " = " + diff, width / 2, height / 2);
+    }
+
+    function windowResized() {
+      resizeCanvas(windowWidth, windowHeight); // Adjust canvas size dynamically
+      background(255, 0, 0); // Reset background after resizing
+    }
+  </script>
+</body>
+</html>
