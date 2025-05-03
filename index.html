@@ -48,6 +48,10 @@
       text(num1 + " / " + num2 + " = " + diff, width / 2, height / 2);
     }
 
+    function mousePressed() {
+     fullscreen(!fullscreen());
+    }
+
     function windowResized() {
       resizeCanvas(windowWidth, windowHeight); // Adjust canvas size dynamically
       background(255, 0, 0); // Reset background after resizing
